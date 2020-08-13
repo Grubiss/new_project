@@ -1,12 +1,213 @@
+// ................................ОБНУЛЕНИЕ СТИЛЕЙ................................
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus,
+:active {
+    outline: none;
+}
+a:focus,
+a:active {
+    outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+html {
+    padding: 0 90px;
+    min-width: 1440px;
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+button {
+    cursor: pointer;
+}
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+a,
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+ul li {
+    list-style: none;
+}
+img {
+    vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+// ................................ОБНУЛЕНИЕ СТИЛЕЙ................................
+
 @mixin font($font_name, $file_name, $weight, $style) {
     @font-face {
         font-family: $font_name;
         font-display: swap;
-        src: url("../fonts/#{$file_name}.woff") format("woff"),
-        url("../fonts/#{$file_name}.woff2") format("woff2");
+        src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
         font-weight: #{$weight};
         font-style: #{$style};
     }
 }
 
+// ................................ПЕРЕМЕННЫЕ И ШРИФТЫ................................
+
+$primary-color: rgba(19, 30, 30, 0.8);
+
 @import "fonts";
+
+// ................................ПЕРЕМЕННЫЕ И ШРИФТЫ................................
+
+// ................................СТИЛИ................................
+.header {
+    background: $primary-color;
+    display: block;
+    position: fixed;
+    width: 1440px;
+    height: 90px;
+    padding: 0 90px;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+
+    &__navigation {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.navigation-link {
+    font-family: "TenorSans-Regular";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 26px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    height: 90px;
+}
+
+.logo {
+    position: relative;
+    top: 0px;
+    margin-right: 40px;
+}
+
+.request {
+    margin-left: 10px;
+    color: #131e1e;
+    font-size: 20px;
+    line-height: 23px;
+    margin-right: 19px;
+    background-color: #cb9419;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    border-radius: 25px;
+    top: 20px;
+    left: 20px;
+    height: 50px;
+    width: 200px;
+}
+
+.about {
+    background: $primary-color;
+    position: absolute;
+    width: 100%;
+    height: 848px;
+    left: 0px;
+    top: 0px;
+    min-width: 1440px;
+    background: url(../img/pexels.svg) no-repeat;
+    background-size: cover;
+    /////////////ДОБАВИТЬ ФЛЕКСБОКС
+    &__top {
+        position: absolute;
+        width: 692px;
+        height: 363px;
+        left: 86px;
+        top: 250px;
+    }
+    &__heading {
+        color: #fff;
+        position: relative;
+        top: 85px;
+    }
+    &__heading h1 {
+        font-family: "TenorSans-Regular";
+        font-size: 72px;
+        line-height: 84px;
+    }
+    &__heading p {
+        font-family: "Roboto-Regular";
+        font-size: 24px;
+        line-height: 28px;
+        position: relative;
+        top: 34px;
+    }
+
+    &__bottom {
+        background: $primary-color;
+        position: absolute;
+        width: 734px;
+        height: 58px;
+        left: 353px;
+        top: 1051px;
+        color: #fff;
+        font-family: "TenorSans-Regular";
+        font-size: 48px;
+        line-height: 56px;
+        text-align: center;
+    }
+    &__title {
+    }
+}
