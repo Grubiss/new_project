@@ -1,5 +1,24 @@
 // ................................ОБНУЛЕНИЕ СТИЛЕЙ................................
 
+@mixin font($font_name, $file_name, $weight, $style) {
+    @font-face {
+        font-family: $font_name;
+        font-display: swap;
+        src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+        font-weight: #{$weight};
+        font-style: #{$style};
+    }
+}
+
+// ................................ПЕРЕМЕННЫЕ И ШРИФТЫ................................
+
+$primary-color: #131e1e;
+
+@import "fonts";
+
+// ................................ПЕРЕМЕННЫЕ И ШРИФТЫ................................
+// ................................ОБНУЛЕНИЕ СТИЛЕЙ................................
+
 * {
     padding: 0;
     margin: 0;
@@ -32,6 +51,8 @@ aside {
 
 html,
 body {
+    margin-right: 0;
+    background-color: primary-color;
     height: 100%;
     width: 100%;
     font-size: 100%;
@@ -43,7 +64,9 @@ body {
 }
 
 html {
-    padding: 0 90px;
+    background: primary-color;
+    margin-right: 0;
+    // padding: 0 90px;
     min-width: 1440px;
 }
 
@@ -86,26 +109,6 @@ h6 {
     font-weight: 400;
 }
 
-// ................................ОБНУЛЕНИЕ СТИЛЕЙ................................
-
-@mixin font($font_name, $file_name, $weight, $style) {
-    @font-face {
-        font-family: $font_name;
-        font-display: swap;
-        src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
-        font-weight: #{$weight};
-        font-style: #{$style};
-    }
-}
-
-// ................................ПЕРЕМЕННЫЕ И ШРИФТЫ................................
-
-$primary-color: rgba(19, 30, 30, 0.8);
-
-@import "fonts";
-
-// ................................ПЕРЕМЕННЫЕ И ШРИФТЫ................................
-
 // ................................СТИЛИ................................
 .header {
     background: $primary-color;
@@ -113,7 +116,7 @@ $primary-color: rgba(19, 30, 30, 0.8);
     position: fixed;
     width: 1440px;
     height: 90px;
-    padding: 0 90px;
+    padding: 0 120px 0 90px;
     left: 0px;
     top: 0px;
     z-index: 1;
@@ -125,7 +128,7 @@ $primary-color: rgba(19, 30, 30, 0.8);
 }
 
 .navigation-link {
-    font-family: "TenorSans-Regular";
+    font-family: "MontserratRegular";
     font-style: normal;
     font-weight: normal;
     font-size: 22px;
@@ -167,47 +170,476 @@ $primary-color: rgba(19, 30, 30, 0.8);
     left: 0px;
     top: 0px;
     min-width: 1440px;
-    background: url(../img/pexels.svg) no-repeat;
-    background-size: cover;
+
     /////////////ДОБАВИТЬ ФЛЕКСБОКС
     &__top {
         position: absolute;
-        width: 692px;
-        height: 363px;
-        left: 86px;
-        top: 250px;
+        top: 0px;
+        min-width: 1440px;
+        width: 100%;
+        height: 848px;
+        background: url(../img/pexels.svg) no-repeat;
+        background-size: cover;
     }
     &__heading {
+        position: absolute;
+        left: 86px;
         color: #fff;
-        position: relative;
-        top: 85px;
+        top: 340px;
     }
     &__heading h1 {
-        font-family: "TenorSans-Regular";
+        font-family: "MontserratRegular";
         font-size: 72px;
         line-height: 84px;
+        color: #fff;
     }
     &__heading p {
         font-family: "Roboto-Regular";
         font-size: 24px;
         line-height: 28px;
-        position: relative;
-        top: 34px;
-    }
-
-    &__bottom {
-        background: $primary-color;
         position: absolute;
-        width: 734px;
-        height: 58px;
-        left: 353px;
-        top: 1051px;
-        color: #fff;
-        font-family: "TenorSans-Regular";
-        font-size: 48px;
-        line-height: 56px;
-        text-align: center;
+        top: 195px;
+        width: 680px;
+    }
+    &__bottom {
+        position: absolute;
+        top: 848px;
+        background: $primary-color;
+        width: 1440px;
+        height: 753px;
     }
     &__title {
+        position: absolute;
+        width: 597px;
+        height: 59px;
+        left: 422px;
+        top: 205px;
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 59px;
+        color: #fff;
+    }
+    &__title p {
+        position: absolute;
+        width: 886px;
+        height: 200px;
+        left: -145px;
+        top: 125px;
+        font-family: "Roboto-Regular";
+        font-size: 24px;
+        line-height: 28px;
+        color: #fff;
+    }
+}
+
+.services {
+    &__body {
+        padding: 0 90px;
+        background: $primary-color;
+        width: 1440px;
+        position: absolute;
+        top: 1601px;
+    }
+
+    &__header {
+        margin-bottom: 45px;
+    }
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        font-size: 48px;
+        line-height: 59px;
+        text-align: center;
+        color: #fff;
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    &__column {
+        flex: 0 0 34.5%;
+        text-align: right;
+    }
+}
+
+.item-services {
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    &__title {
+        text-align: center;
+        font-family: "MontserratRegular";
+        font-size: 33px;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        margin-left: 24px;
+        text-align: left;
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 29px;
+
+        color: #fff;
+    }
+}
+.site {
+    position: relative;
+    right: 33px;
+}
+.design {
+    position: relative;
+    right: 20px;
+}
+.market {
+    position: relative;
+    right: 15px;
+}
+
+.receiveByMail {
+    &__body {
+        position: absolute;
+        top: 2149px;
+        padding: 0 90px;
+        width: 1440px;
+        background: $primary-color;
+        height: 1053px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+    }
+
+    &__img {
+        position: relative;
+    }
+
+    &__column {
+        margin-left: 80px;
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 29px;
+        color: #fff;
+    }
+    &__column p {
+        position: relative;
+        bottom: 5px;
+    }
+    .submitMail {
+        margin-top: 25px;
+        width: 392.34px;
+        height: 50px;
+        border-radius: 25px;
+        background: #f0ae19;
+        font-size: 20px;
+    }
+}
+
+.formRequest {
+    &__body {
+        position: absolute;
+        width: 1440px;
+        height: 990px;
+        left: 0px;
+        top: 3202px;
+        background: #f0ae19;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.form {
+    margin-bottom: 51px;
+    &__header {
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 59px;
+        text-align: center;
+        color: #131e1e;
+    }
+
+    &__name {
+        border: 2px solid #131e1e;
+        box-sizing: border-box;
+        width: 500px;
+        height: 50px;
+    }
+    &__name input {
+        background: #f0ae19;
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 11px 20px 10px 20px;
+        width: 490px;
+        outline: none;
+    }
+    &__name input::-webkit-input-placeholder {
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(19, 30, 30, 0.5);
+    }
+
+    &__email {
+        border: 2px solid #131e1e;
+        box-sizing: border-box;
+        width: 500px;
+        height: 50px;
+    }
+    &__email input {
+        background: #f0ae19;
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 11px 20px 10px 20px;
+        width: 490px;
+        outline: none;
+    }
+    &__email input::-webkit-input-placeholder {
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(19, 30, 30, 0.5);
+    }
+
+    &__number {
+        border: 2px solid #131e1e;
+        box-sizing: border-box;
+        width: 500px;
+        height: 50px;
+    }
+    &__number input {
+        background: #f0ae19;
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 11px 20px 10px 20px;
+        width: 490px;
+        outline: none;
+        text-decoration: none;
+    }
+    &__number input::-webkit-input-placeholder {
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(19, 30, 30, 0.5);
+    }
+    &__number input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    &__number input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    &__textarea {
+    }
+    &__textarea textarea {
+        border: 2px solid #131e1e;
+        box-sizing: border-box;
+        background: #f0ae19;
+        width: 502px;
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 29px;
+        padding-top: 19px;
+        padding-right: 14px;
+        padding-left: 20px;
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+    }
+    &__button input {
+        width: 236px;
+        height: 51px;
+        background: #131e1e;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+        cursor: pointer;
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 24px;
+        color: #f0ae19;
+    }
+    &__personalData {
+        width: 553px;
+        height: 44px;
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        color: #131e1e;
+    }
+    &__personalData a {
+        text-decoration: solid;
+        color: #131e1e;
+    }
+}
+.contacts {
+    &__body {
+        position: absolute;
+        top: 4191px;
+        height: 720px;
+        width: 1440px;
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: row;
+        &_container {
+            margin-left: 82px;
+            margin-top: 74.5px;
+        }
+        &_container p {
+            font-family: "MontserratRegular";
+            font-style: normal;
+            font-weight: normal;
+            font-size: 30px;
+            line-height: 37px;
+            color: #ffffff;
+        }
+    }
+
+    &__leftItem {
+        background: $primary-color;
+        height: 720px;
+        width: 100%;
+    }
+
+    &__header {
+        margin-top: 73px;
+        color: #ffffff;
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 59px;
+        text-align: center;
+    }
+
+    &__rightItem {
+        height: 720px;
+        width: 100%;
+        background: #3a3a3a;
+    }
+}
+.footer {
+    &__body {
+        position: absolute;
+        top: 4909px;
+        background: #171717;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 1440px;
+        height: 315px;
+        padding: 54.5px 90px 51.5px 90px;
+    }
+
+    &__logo {
+    }
+
+    &__address {
+        width: 330px;
+        height: 85px;
+        line-height: 17px;
+    }
+    &__address p {
+        font-family: "MontserratRegular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 3;
+        color: #ffffff;
+    }
+
+    &__menu {
+        width: 297px;
+        height: 209px;
+    }
+    &__menu li {
+        padding: 8px 0;
+    }
+    &__menu h4 {
+        font-family: "Roboto-Regular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 5px;
+        color: rgba(255, 255, 255, 0.6);
+    }
+    &__menu a {
+        color: #fff;
+        font-family: "Roboto-Regular";
+        font-style: normal;
+        font-weight: normal;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    &__social {
+        margin-top: 30px;
+        &_icons a {
+            
+            padding: 0 3px;
+        }
+    }
+
+    &__pixelway {
+        margin-top: 10px;
+        font-family: 'MontserratRegular';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 17px;
+       
+
+        color: #ffffff;
     }
 }
